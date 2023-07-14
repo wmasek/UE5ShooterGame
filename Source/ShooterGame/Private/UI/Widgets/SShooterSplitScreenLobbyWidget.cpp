@@ -23,15 +23,9 @@ static FAutoConsoleVariableRef CVarShooterSplitScreenMax(
 
 void SShooterSplitScreenLobby::Construct( const FArguments& InArgs )
 {
-#if PLATFORM_PS4
-	PressToPlayText = LOCTEXT("PressToPlay", "Press cross button to Play");
-	PressToFindText = LOCTEXT("PressToFind", "Press cross button to Find Match");
-	PressToStartMatchText = LOCTEXT("PressToStart", "Press cross button To Start Match");
-#else
 	PressToPlayText = LOCTEXT("PressToPlay", "Press A to Play");
 	PressToFindText = LOCTEXT("PressToFind", "Press A to Find Match");
-	PressToStartMatchText = LOCTEXT("PressToStart", "Press A To Start Match");	
-#endif
+	PressToStartMatchText = LOCTEXT("PressToStart", "Press A To Start Match");
 
 #if PLATFORM_SWITCH
 	PressToPlayText = LOCTEXT("PressToPlay", "<img src=\"ShooterGame.Switch.Right\"/> Select User");
@@ -448,33 +442,6 @@ void SShooterSplitScreenLobby::OnUserCanPlay(const FUniqueNetId& UserId, EUserPr
 	if (PrivilegeResults != (uint32)IOnlineIdentity::EPrivilegeResults::NoFailures && GetGameInstance())
 	{
 		// Xbox shows its own system dialog currently
-#if PLATFORM_PS4
-		const IOnlineSubsystem* OnlineSub = Online::GetSubsystem(GetGameInstance()->GetWorld());
-		if (OnlineSub)
-		{
-			const IOnlineIdentityPtr Identity = OnlineSub->GetIdentityInterface();
-			if (Identity.IsValid())
-			{
-				FString Nickname = Identity->GetPlayerNickname(UserId);
-
-				// Show warning that the user cannot play due to age restrictions
-				UShooterGameViewportClient * ShooterViewport = Cast<UShooterGameViewportClient>(GetGameInstance()->GetGameViewportClient());
-
-				if (ShooterViewport != NULL)
-				{
-					ShooterViewport->ShowDialog(
-						PlayerOwner.Get(),
-						EShooterDialogType::Generic,
-						FText::Format(NSLOCTEXT("ProfileMessages", "AgeRestrictionFmt", "{0} cannot play due to age restrictions!"), FText::FromString(Nickname)),
-						NSLOCTEXT("DialogButtons", "OKAY", "OK"),
-						FText::GetEmpty(),
-						FOnClicked::CreateRaw(this, &SShooterSplitScreenLobby::OnOkOrCancel),
-						FOnClicked::CreateRaw(this, &SShooterSplitScreenLobby::OnOkOrCancel)
-						);
-				}
-			}
-		}
-#endif
 	}
 	else
 	{

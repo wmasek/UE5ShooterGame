@@ -1173,7 +1173,7 @@ void AShooterCharacter::PreReplication(IRepChangedPropertyTracker & ChangedPrope
 	Super::PreReplication(ChangedPropertyTracker);
 
 	// Only replicate this property for a short duration after it changes so join in progress players don't get spammed with fx when joining late
-	DOREPLIFETIME_ACTIVE_OVERRIDE(AShooterCharacter, LastTakeHitInfo, GetWorld() && GetWorld()->GetTimeSeconds() < LastTakeHitTimeTimeout);
+	//DOREPLIFETIME_ACTIVE_OVERRIDE(AShooterCharacter, LastTakeHitInfo, GetWorld() && GetWorld()->GetTimeSeconds() < LastTakeHitTimeTimeout);
 }
 
 void AShooterCharacter::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const

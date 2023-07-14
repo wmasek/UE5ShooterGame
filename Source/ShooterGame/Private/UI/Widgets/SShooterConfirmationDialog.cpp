@@ -156,7 +156,7 @@ FReply SShooterConfirmationDialog::ExecuteConfirm(const int32 UserIndex)
 	if (OnConfirm.IsBound())
 	{
 		//these two cases should be combined when we move to using PlatformUserIDs rather than ControllerIDs.
-#if PLATFORM_PS4 || SHOOTER_CONTROLLER_DISCONNECT_STRICT
+#if SHOOTER_CONTROLLER_DISCONNECT_STRICT
 		bool bExecute = false;
 		// For controller reconnection, bind the confirming controller to the owner of this dialog
 		if (DialogType == EShooterDialogType::ControllerDisconnected && PlayerOwner != nullptr)

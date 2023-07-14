@@ -3,9 +3,8 @@
 #include "ShooterGameLoadingScreen.h"
 #include "GenericApplication.h"
 #include "GenericApplicationMessageHandler.h"
-#include "SlateBasics.h"
 #include "SlateExtras.h"
-#include "MoviePlayer.h"
+//#include "MoviePlayer.h"
 
 // This module must be loaded "PreLoadingScreen" in the .uproject file, otherwise it will not hook in time!
 
@@ -103,11 +102,13 @@ public:
 
 	virtual void StartInGameLoadingScreen() override
 	{
+		/*
 		FLoadingScreenAttributes LoadingScreen;
 		LoadingScreen.bAutoCompleteWhenLoadingCompletes = true;
 		LoadingScreen.WidgetLoadingScreen = SNew(SShooterLoadingScreen2);
 
 		GetMoviePlayer()->SetupLoadingScreen(LoadingScreen);
+		*/
 	}
 };
 

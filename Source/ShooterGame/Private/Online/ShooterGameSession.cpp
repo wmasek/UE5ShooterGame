@@ -5,6 +5,7 @@
 #include "ShooterOnlineGameSettings.h"
 #include "OnlineSubsystemSessionSettings.h"
 #include "OnlineSubsystemUtils.h"
+#include "OnlineSessionNames.h"
 
 namespace
 {

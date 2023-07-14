@@ -554,7 +554,7 @@ void FShooterMainMenu::OnUserCanPlayOnlineQuickMatch(const FUniqueNetId& UserId,
 		SplitScreenLobbyWidget->SetIsJoining(false);
 
 		// Skip splitscreen for PS4
-#if PLATFORM_PS4 || MAX_LOCAL_PLAYERS == 1
+#if MAX_LOCAL_PLAYERS == 1
 		BeginQuickMatchSearch();
 #else
 		UGameViewportClient* const GVC = GEngine->GameViewport;
@@ -665,7 +665,7 @@ void FShooterMainMenu::OnSplitScreenSelected()
 
 	RemoveMenuFromGameViewport();
 
-#if PLATFORM_PS4 || MAX_LOCAL_PLAYERS == 1 || !SHOOTER_SUPPORTS_OFFLINE_SPLIT_SCREEEN
+#if MAX_LOCAL_PLAYERS == 1 || !SHOOTER_SUPPORTS_OFFLINE_SPLIT_SCREEEN
 	if (!SHOOTER_SUPPORTS_OFFLINE_SPLIT_SCREEEN || (GameInstance.IsValid() && GameInstance->GetOnlineMode() == EOnlineMode::Online))
 	{
 		OnUIHostTeamDeathMatch();

@@ -2,6 +2,8 @@
 
 #include "ShooterGame.h"
 #include "Pickups/ShooterPickup_Ammo.h"
+
+#include "OnlineEventsInterface.h"
 #include "Weapons/ShooterWeapon.h"
 #include "OnlineSubsystemUtils.h"
 

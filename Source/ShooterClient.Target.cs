@@ -7,6 +7,7 @@ public class ShooterClientTarget : TargetRules
 {
 	public ShooterClientTarget(TargetInfo Target) : base(Target)
 	{
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_2;
 		Type = TargetType.Client;
 		bUsesSteam = true;		
 

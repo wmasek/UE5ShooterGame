@@ -368,7 +368,8 @@ void UShooterReplicationGraph::InitGlobalGraphNodes()
 
 	if (CVar_ShooterRepGraph_DisableSpatialRebuilds)
 	{
-		GridNode->AddSpatialRebuildBlacklistClass(AActor::StaticClass()); // Disable All spatial rebuilding
+		//AddSpatialRebuildBlacklistClass Deprecated in 5.2
+		//GridNode->AddSpatialRebuildBlacklistClass(AActor::StaticClass()); // Disable All spatial rebuilding
 	}
 	
 	AddGlobalGraphNode(GridNode);

@@ -6,6 +6,7 @@
 #include "OnlineIdentityInterface.h"
 #include "OnlineSessionInterface.h"
 #include "OnlineGameActivityInterface.h"
+#include "OnlineSessionSettings.h"
 #include "Engine/GameInstance.h"
 #include "Engine/NetworkDelegates.h"
 #include "ShooterGameInstance.generated.h"

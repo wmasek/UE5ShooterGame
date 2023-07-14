@@ -8,6 +8,7 @@ public class ShooterServerTarget : TargetRules
 {
 	public ShooterServerTarget(TargetInfo Target) : base(Target)
 	{
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_2;
 		Type = TargetType.Server;
 		bUsesSteam = true;
 

@@ -10,8 +10,6 @@ FText ShooterUIHelpers::GetProfileOpenText() const
 	// @todo: replace 'GamerCard' with distribution specific terminology (Steam, Origin, UPlay, etc)
 #if SHOOTER_XBOX_STRINGS
 	return NSLOCTEXT("Network", "XB1OpenProfile", "Press A for GamerCard");
-#elif PLATFORM_PS4
-	return NSLOCTEXT("Network", "PS4OpenProfile", "Press cross button for GamerCard");
 #else
 	return NSLOCTEXT("Network", "PCOpenProfile", "Press Enter for GamerCard");
 #endif

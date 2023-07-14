@@ -20,6 +20,8 @@
 #include "Online/ShooterOnlineSessionClient.h"
 #include "OnlineSubsystemUtils.h"
 #include "ShooterGameUserSettings.h"
+#include "OnlinePresenceInterface.h"
+#include "OnlineSessionNames.h"
 
 #if !defined(CONTROLLER_SWAPPING)
 	#define CONTROLLER_SWAPPING 0
@@ -317,7 +319,6 @@ void UShooterGameInstance::HandleDemoPlaybackFailure( EDemoPlayFailure::Type Fai
 
 void UShooterGameInstance::StartGameInstance()
 {
-#if PLATFORM_PS4 == 0
 	TCHAR Parm[4096] = TEXT("");
 
 	const TCHAR* Cmd = FCommandLine::Get();
@@ -365,7 +366,6 @@ void UShooterGameInstance::StartGameInstance()
 			}
 		}
 	}
-#endif
 	UShooterGameUserSettings::InitNVIDIAReflex();
 	GotoInitialState();
 }
@@ -1336,9 +1336,7 @@ bool UShooterGameInstance::Tick(float DeltaSeconds)
 						LocalPlayers[i],
 						EShooterDialogType::ControllerDisconnected,
 						FText::Format(NSLOCTEXT("ProfileMessages", "PlayerReconnectControllerFmt", "Player {0}, please reconnect your controller."), FText::AsNumber(i + 1)),
-#if PLATFORM_PS4
-						NSLOCTEXT("DialogButtons", "PS4_CrossButtonContinue", "Cross Button - Continue"),
-#elif SHOOTER_XBOX_STRINGS
+#if SHOOTER_XBOX_STRINGS
 						NSLOCTEXT("DialogButtons", "AButtonContinue", "A - Continue"),
 #else
 						NSLOCTEXT("DialogButtons", "EnterContinue", "Enter - Continue"),

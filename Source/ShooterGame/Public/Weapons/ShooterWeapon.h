@@ -12,7 +12,6 @@ class UAudioComponent;
 class UParticleSystemComponent;
 class UForceFeedbackEffect;
 class USoundCue;
-class UMatineeCameraShake;
 
 namespace EWeaponState
 {
@@ -322,8 +321,8 @@ protected:
 	UParticleSystemComponent* MuzzlePSCSecondary;
 
 	/** camera shake on firing */
-	UPROPERTY(EditDefaultsOnly, Category=Effects)
-	TSubclassOf<UMatineeCameraShake> FireCameraShake;
+	//UPROPERTY(EditDefaultsOnly, Category=Effects)
+	//TSubclassOf<ULegacyCameraShake> FireCameraShake;
 
 	/** force feedback effect to play when the weapon is fired */
 	UPROPERTY(EditDefaultsOnly, Category=Effects)

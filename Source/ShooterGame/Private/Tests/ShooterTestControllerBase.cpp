@@ -5,6 +5,8 @@
 #include "Online/ShooterOnlineGameSettings.h"
 #include "OnlineSubsystemSessionSettings.h"
 #include "OnlineSubsystemUtils.h"
+#include "OnlineSessionNames.h"
+#include "GauntletModule.h"
 
 void UShooterTestControllerBase::OnInit()
 {

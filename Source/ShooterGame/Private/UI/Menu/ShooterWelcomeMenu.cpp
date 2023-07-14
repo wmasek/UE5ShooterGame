@@ -64,9 +64,7 @@ class SShooterWelcomeMenuWidget : public SCompoundWidget
 			.HAlign(HAlign_Center)
 			[ 
 				SAssignNew( PressPlayText, SRichTextBlock )
-#if PLATFORM_PS4
-				.Text( LOCTEXT("PressStartPS4", "PRESS CROSS BUTTON TO PLAY" ) )
-#elif PLATFORM_SWITCH
+#if PLATFORM_SWITCH
 				.Text(LOCTEXT("PressStartSwitch", "PRESS <img src=\"ShooterGame.Switch.Right\"/> TO PLAY"))
 #elif SHOOTER_XBOX_STRINGS
 				.Text( LOCTEXT("PressStartXboxOne", "PRESS A TO PLAY" ) )
